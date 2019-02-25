@@ -1,0 +1,17 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >E Treatment Room</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Home", patient_path(session[:checkuser_id]) %></li>
+      <li><%= link_to "Edit Profile",  edit_patient_path(session[:checkuser_id]) %></li>
+      <li><%= link_to "Take Appointment",  new_patient_appointment_path(session[:checkuser_id]) %></li>
+      <li><%= link_to "View Appointment",  view_path(session[:checkuser_id]) %></li>
+      <li><%= link_to "Online Prescription", patviewall_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Logout", sessions_destroy_path %></li>
+    </ul>
+  </div>
+</nav>

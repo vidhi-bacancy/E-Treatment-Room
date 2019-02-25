@@ -1,0 +1,18 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >E-Treatment Room</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Home", admin_path(session[:checkadmin_id]) %></li>
+      <li><%= link_to "View Patients", patients_path %></li>
+      <li><%= link_to "View Doctors", doctors_path %></li>
+      <li><%= link_to "View Appointments", viewallappointments_path %></li>
+      <li><%= link_to "Register Doctor", registerdoctor_path %></li>
+      <li><%= link_to "Online Prescription", adminviewall_path %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Logout", admin_path(session[:checkadmin_id]), method: :delete %></li>
+    </ul>
+  </div>
+</nav>

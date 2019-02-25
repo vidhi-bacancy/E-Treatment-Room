@@ -1,0 +1,33 @@
+<%= render 'layouts/doctor'%>
+<div class ="container">
+<h1>Add new Prescription</h1>
+  <%= render 'layouts/message'%>
+<div class ="jumbotron">
+<%= form_with scope: :prescription, url: doctor_prescriptions_path,local: true do |form| %>
+  <% if @prescription.errors.any? %>
+    <div id="error_explanation">
+    <h2><%= pluralize(@prescription.errors.count, "error") %> Error while adding prescription:</h3>
+
+    <ul>
+    <% @prescription.errors.full_messages.each do |msg| %>
+    <li style="color:red;"><%= msg %></li>
+    <% end %>
+    </ul>
+    </div>
+  <% end %>
+  <p>
+  <%= form.text_field :disease , placeholder:'Enter Disease Name' ,class:"form-control"%>
+  </p>
+  <p>
+  <%= form.text_area :medicines , placeholder:'Enter Medicines' ,class:"form-control"%>
+  </p>
+  <p>
+  <p>
+  <%= form.text_area :dose , placeholder:'Enter Doses' ,class:"form-control"%>
+  </p>
+  <p align="center">
+  <%= form.submit 'Add Prescription' ,class:"btn btn-primary btn-md"%>
+  </p>
+<%end%>
+</div>
+</div>

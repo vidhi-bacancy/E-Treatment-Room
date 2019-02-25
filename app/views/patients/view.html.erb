@@ -1,0 +1,22 @@
+<%= render 'layouts/patient'%>
+<div class="container">
+<h1>Listing Appointments</h1>
+<%= render 'layouts/message'%>
+<div class="jumbotron">
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th>Doctor Name</th>
+    <th>Date</th>
+    <th>Actions</th>
+  </tr>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.viewpatient(appointment.doctor_id)[0].name %></td>
+      <td><%= appointment.date %></td>
+      <td><%=  link_to 'Delete Appointment', patient_appointment_path(session[:checkuser_id],appointment), method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

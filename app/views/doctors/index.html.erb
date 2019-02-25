@@ -1,0 +1,36 @@
+<%= render 'layouts/admin'%>
+<div class="container">
+<h1>Listing All Doctors</h1>
+<%= render 'layouts/message'%>
+<div class="jumbotron">
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th>Name</th>
+    <th>Email ID</th>
+    <th>Specialist</th>
+    <th>Experience</th>
+    <th>Clinic Address</th>
+    <th>Clinic Phone Number</th>
+    <th>Account Password</th>
+    <th>Action</th>
+  </tr>
+ 
+  <% @doctor.each do |doctor| %>
+    <tr>
+      <td><%= doctor.name %></td>
+      <td><%= doctor.email %></td>
+      <td><%= doctor.specialist %></td>
+      <td><%= doctor.experience %></td>
+      <td><%= doctor.clinicaddress %></td>
+      <td><%= doctor.cliniccno %></td>
+      <td><%= doctor.password %></td>
+      <td>
+      <%= link_to "Delete Doctor", doctor_path(doctor), class:"btn btn-primary btn-sm",
+                                method: :delete,
+                                data: { confirm: 'Are you sure you want to delete this?'}%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

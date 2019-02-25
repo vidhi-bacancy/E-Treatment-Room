@@ -1,0 +1,31 @@
+<%= render 'layouts/doctor'%>
+<div class ="container">
+<h1>Update Prescription</h1>
+<%= render 'layouts/message'%>
+<div class ="jumbotron">
+<%= form_with scope: :prescription, url: doctor_prescription_path, method: :patch ,local: true do |form| %>
+	<p>
+	<div class="form-group">
+	<%= form.label :disease, 'Update Disease Name' %>
+	<%= form.text_field :disease , class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :medicines, 'Update Medicines' %>
+	<%= form.text_area :medicines , class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :dose, 'Update Doses' %>
+	<%= form.text_area :dose , class:"form-control"%>
+	</div>
+	</p>
+	
+	<p align="center">
+	<%= form.submit 'Update' ,class:"btn btn-primary btn-md"%>
+	</p>
+<%end%>
+</div>
+</div>

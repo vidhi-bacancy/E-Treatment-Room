@@ -1,0 +1,44 @@
+<%= render 'layouts/patient'%>
+<div class ="container">
+	<%= render 'layouts/message'%>
+<h1>Take Appointment</h1>
+<div class ="jumbotron">
+<% appointment = @appointment.present? ? @appointment : @patient.appointments.build %>
+<%= form_with(model: appointment, local: true, url: patient_appointments_path ) do |form| %>
+	<% if @appointment.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@appointment.errors.count, "error") %> Error while taking appointment:</h3>
+
+		<ul>
+		<% @appointment.errors.full_messages.each do |msg| %>
+		<li style="color:red;"><%= msg %></li>
+		<% end %>
+		</ul>
+		</div>
+	<% end %>
+	<p>
+	<%= form.label :name , 'Select Doctor' %>
+	<%= form.select( :doctor_id, Appointment::LIST,{include_blank: 'select'} ,class:"dropdown").html_safe%>
+	</p>
+	<p>
+	<%= form.label :date , 'Select Date' %>	
+	<input type="date" name="appointment[date]">
+	</p>
+	<p>
+	<%= form.submit 'Take Appointment'  ,class:"btn btn-primary btn-md"%>
+	</p>
+<%end%>
+</div>
+<h1>Doctors</h1>
+<div class="jumbotron">
+  <% Doctor::DOCLIST.each do |doctor| %>
+   <p> Name : <%= doctor[1] %><br>
+   	Email ID : <%= doctor[2] %><br>
+    Specialist : <%= doctor[3] %><br>
+    Experience : <%= doctor[4] %> Years<br>
+    Clinic Address : <%= doctor[5] %><br>
+    Clinic Contact Number : <%= doctor[6] %><br></p>
+    <br>
+  <% end %>
+</div>
+</div>

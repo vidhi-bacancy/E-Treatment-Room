@@ -1,0 +1,31 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >E Treatment Room</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "Login", login_path %></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+<h1>Admin Login</h1>
+	<%= render 'layouts/message'%>
+<div class="jumbotron">
+<%= form_with scope: :admin, url: admins_path ,local: true do |form| %>
+	<% if flash[:notice]%>
+		<%= flash[:notice] %>
+	<br>
+	<% end %>
+	<p>
+	<%= form.text_field :username , placeholder:'Enter User Name',class:"form-control" %>
+	</p>
+	<p>
+	<%= form.password_field :password , placeholder:'Enter Password',class:"form-control"%>
+	</p>
+	<p align="center">
+	<%= form.submit 'Login' ,class:"btn btn-primary btn-md"%>
+	</p>
+<%end%>
+</div>
+</div>

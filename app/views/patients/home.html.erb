@@ -1,0 +1,14 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >E Treatment Room</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><%= link_to "Home", home_path %></li>
+      <li><%= link_to "Register",  new_patient_path%></li>
+      <li><%= link_to "Login", login_path %></li>
+    </ul>
+  </div>
+</nav>
+<%= render 'layouts/message'%>
+Welcome to E treatment room

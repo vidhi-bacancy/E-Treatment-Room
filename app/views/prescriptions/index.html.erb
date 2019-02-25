@@ -1,0 +1,28 @@
+<%= render 'layouts/doctor'%>
+<div class="container">
+<h1>Listing Your Prescription</h1>
+<%= render 'layouts/message'%>
+<div class="jumbotron">
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th>Disease Name</th>
+    <th>Prescription</th>
+    <th>Dose</th>
+    <th>Action</th>
+  </tr>
+  <% @prescription.each do |prescription| %>
+    <tr>
+      <td><%= prescription.disease %></td>
+      <td><%= prescription.medicines %></td>
+      <td><%= prescription.dose %></td>
+      <td><%= link_to "Edit", edit_doctor_prescription_path(session[:checkdoc_id],prescription),class:"btn btn-primary btn-md" %>
+        <br><br>
+      <%= link_to "Delete", doctor_prescription_path(session[:checkdoc_id],prescription),
+                                method: :delete,
+                                data: { confirm: 'Are you sure you want to delete this prescription?'},class:"btn btn-primary btn-md" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

@@ -1,0 +1,47 @@
+<%= render 'layouts/admin'%>
+<div class ="container">
+<h1>Doctor Registration</h1>
+<%= render 'layouts/message'%>
+<div class ="jumbotron">
+<%= form_with(model: @doctor,local: true) do |form| %>
+	<% if @doctor.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@doctor.errors.count, "error") %> Error while registering doctor:</h3>
+
+		<ul>
+		<% @doctor.errors.full_messages.each do |msg| %>
+		<li style="color:red;"><%= msg %></li>
+		<% end %>
+		</ul>
+		</div>
+	<% end %>
+	<p>
+	<%= form.text_field :name , placeholder:'Enter Name' ,class:"form-control"%>
+	</p>
+	<p>
+	<%= form.text_field :email , placeholder:'Enter Email ID' ,class:"form-control"%>
+	</p>
+	<p>
+	<%= form.text_field :specialist , placeholder:'Enter Specialist' ,class:"form-control"%>
+	</p>
+	<p>
+	<%= form.text_field :experience , placeholder:'Enter Experience' ,class:"form-control"%>
+	</p>
+	<p>
+	<%= form.text_area :clinicaddress , placeholder:'Enter Clinic Address',class:"form-control"%>
+	</p>
+	<p>
+	<%= form.text_field :cliniccno , placeholder:'Enter Clinic Contact Number',class:"form-control"%>
+	</p>
+	<p>
+	<%= form.password_field :password , placeholder:'Enter Password',class:"form-control"%>
+	</p>
+	<p>
+	<%= form.password_field :password_confirmation , placeholder:'Confirm Password',class:"form-control" %>
+	</p> 
+	<p align="center">
+	<%= form.submit 'Register' ,class:"btn btn-primary btn-md"%>
+	</p>
+<%end%>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<%= render 'layouts/doctor'%>
+<div class="container">
+<h1>Listing All Prescriptions</h1>
+<div class="jumbotron">
+  <%= form_with scope: :search, url: adminviewall_path, method: :get, local: true do |form| %>
+  <p align="center" class="form-group">
+  <%= form.text_field :searchtext, placeholder:"enter text to search" %>
+  <%= form.submit 'Search',class:"btn btn-primary btn-md"%>
+  </p>
+<% end %>
+<br>
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th>Doctor Name</th>
+    <th>Disease Name</th>
+    <th>Prescription</th>
+    <th>Dose</th>
+  </tr>
+  <% @prescription.each do |prescription| %>
+    <tr>
+      <td><%= prescription.retrive_doctor(prescription.doctor_id)[0].name%></td>
+      <td><%= prescription.disease %></td>
+      <td><%= prescription.medicines %></td>
+      <td><%= prescription.dose %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

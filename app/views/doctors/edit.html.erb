@@ -1,0 +1,73 @@
+<%= render 'layouts/doctor'%>
+<div class ="container">
+<h1>Update Profile</h1>
+<%= render 'layouts/message'%>
+<div class ="jumbotron">
+<%= form_with(model: @doctor,local: true) do |form| %>
+	<% if @doctor.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@doctor.errors.count, "error") %> Error while updating doctor:</h3>
+
+		<ul>
+		<% @doctor.errors.full_messages.each do |msg| %>
+		<li style="color:red;"><%= msg %></li>
+		<% end %>
+		</ul>
+		</div>
+	<% end %>
+	<p>
+	<div class="form-group">
+	<%= form.label :name, 'Update Name' %>
+	<%= form.text_field :name ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :email, 'Update Email ID' %>
+	<%= form.text_field :email ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :specialist, 'Update Specialist' %>
+	<%= form.text_field :specialist ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :experience, 'Update Experience' %>
+	<%= form.text_field :experience ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :clinicaddress, 'Update Address' %>
+	<%= form.text_area :clinicaddress ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :cliniccno, 'Update Contact Number' %>
+	<%= form.text_field :cliniccno ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :password, 'Update Password' %>
+	<%= form.password_field :password ,class:"form-control"%>
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :cpassword, 'Conirm password' %>
+	<%= form.password_field :password_confirmation ,class:"form-control"%>
+	</div>
+	</p> 
+	<p>
+	<div class="form-group" align="center">
+	<%= form.submit 'Update' ,class:"btn btn-primary btn-md"%>
+	</div>
+	</p>
+<%end%>
+</div>
+</div>

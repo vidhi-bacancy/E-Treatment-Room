@@ -1,0 +1,68 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" >E Treatment Room</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Home", home_path %></li>
+      <li class="active"><%= link_to "Register",  new_patient_path%></li>
+      <li><%= link_to "Login", login_path %></li>
+    </ul>
+  </div>
+</nav>
+<div class ="container">
+<h1>Patient Registration</h1>
+	<%= render 'layouts/message'%>
+<div class ="jumbotron">
+<%= form_with(model: @patient,local: true) do |form| %>
+	<% if @patient.errors.any? %>
+		<div id="error_explanation">
+		<h2><%= pluralize(@patient.errors.count, "error") %> Error while registering patient:</h3>
+
+		<ul>
+		<% @patient.errors.full_messages.each do |msg| %>
+		<li style="color:red;"><%= msg %></li>
+		<% end %>
+		</ul>
+		</div>
+	<% end %>
+	<p>
+	<%= form.text_field :name , placeholder:'Enter Name' ,class:"form-control" %>
+	</p>
+	<p>
+	<%= form.text_field :email , placeholder:'Enter Email id',class:"form-control" %>
+	</p>
+	<p>
+	<p>
+	<%= form.text_area :address , placeholder:'Enter Address',class:"form-control" %>
+	</p>
+	<p>
+	<%= form.text_field :phoneno , placeholder:'Enter Contact Number',class:"form-control" %>
+	<p>
+	<div class="form-group">
+	<%= form.label :gender %><br>
+	<%= form.radio_button :gender, 'male' %>Male
+	<%= form.radio_button :gender, 'female' %>Female
+	</div>
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :dob , 'Select Date Of Birth' %>	
+	<input type="date" name="patient[dob]">
+	</div>
+	</p>
+	<p>
+	<%= form.text_field :age , placeholder:'Enter Age',class:"form-control" %>
+	</p>
+	<p>
+	<%= form.password_field :password , placeholder:'Enter Password',class:"form-control"%>
+	</p>
+	<p>
+	<%= form.password_field :password_confirmation , placeholder:'Confirm Password',class:"form-control" %>
+	</p> 
+	<p align="center">
+	<%= form.submit 'Register' ,class:"btn btn-primary btn-md"%>
+	</p>
+<%end%>
+</div>
+</div>

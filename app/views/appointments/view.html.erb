@@ -1,0 +1,21 @@
+<%= render 'layouts/admin'%>
+<div class="container">
+<h1>Listing All Appointments</h1>
+<%= render 'layouts/message'%>
+<div class="jumbotron">
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th>Patient Name</th>
+    <th>Doctor Name</th>
+    <th>Date</th>
+  </tr>
+  <% @appointment.each do |appointment| %>
+    <tr>
+      <td><%= appointment.test(appointment.patient_id)[0].name %></td>
+      <td><%= appointment.viewpatient(appointment.doctor_id)[0].name %></td>
+      <td><%= appointment.date %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>

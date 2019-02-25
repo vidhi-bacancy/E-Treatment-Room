@@ -1,0 +1,19 @@
+<%= render 'layouts/doctor'%>
+<div class="container">
+  <h1>Listing all Patients</h1>
+  <%= render 'layouts/message'%>
+  <div class="jumbotron">
+<table class="table table-striped" style="width:100%" align="center">
+  <tr>
+    <th>Patients Name</th>
+    <th>Date</th>
+  </tr>
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.test(appointment.patient_id)[0].try(:name) %></td>
+      <td><%= appointment.date %></td>
+    </tr>
+  <% end %>
+</table>
+</div>
+</div>
