@@ -69,7 +69,13 @@
 	<%= form.label :password_confirmation, 'Update Confirm Password' %>	
 	<%= form.password_field :password_confirmation , class:"form-control"%>
 	</div>
-	</p> 
+	</p>
+	<p>
+	<div class="form-group">
+	<%= form.label :avatar , 'Update avatar' %>
+	<%= form.file_field :avatar %>
+	</div>
+	</p>
 	<p align="center">
 	<%= form.submit 'Submit' ,class:"btn btn-primary btn-md"%>
 	</p>

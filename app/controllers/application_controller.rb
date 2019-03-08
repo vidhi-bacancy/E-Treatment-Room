@@ -6,16 +6,14 @@ class ApplicationController < ActionController::Base
       Patient.where(id: session[:checkuser_id] ).first   
     end   
     helper_method :current_user
-
-    private   
-    def current_user  
+  
+    def current_doc
       Doctor.where(id: session[:checkdoc_id] ).first   
     end   
-    helper_method :current_user 
-
-    private   
-    def current_user  
+    helper_method :current_doc
+ 
+    def current_admin
       Admin.where(id: session[:checkadmin_id] ).first   
     end   
-    helper_method :current_user
+    helper_method :current_admin
 end

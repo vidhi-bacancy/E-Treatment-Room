@@ -1,3 +1,6 @@
 <%= render 'layouts/patient'%>
 <%= render 'layouts/message'%>
-<h1>Welcome <%= @patient.name %> </h1>
+<h1 align="center">Welcome <%= @patient.name %> </h1>
+<p align="center">
+	<%= image_tag(@patient.avatar, style:'width:200px;height:200px;border-radius:50%;') if @patient.avatar.attached?%>
+</p>

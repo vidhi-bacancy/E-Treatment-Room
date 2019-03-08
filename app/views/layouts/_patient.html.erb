@@ -4,13 +4,14 @@
       <a class="navbar-brand" >E Treatment Room</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><%= link_to "Home", patient_path(session[:checkuser_id]) %></li>
-      <li><%= link_to "Edit Profile",  edit_patient_path(session[:checkuser_id]) %></li>
-      <li><%= link_to "Take Appointment",  new_patient_appointment_path(session[:checkuser_id]) %></li>
-      <li><%= link_to "View Appointment",  view_path(session[:checkuser_id]) %></li>
+      <li><%= link_to "Home", patient_path(current_user) %></li>
+      <li><%= link_to "Edit Profile",  edit_patient_path(current_user) %></li>
+      <li><%= link_to "Take Appointment",  new_patient_appointment_path(current_user) %></li>
+      <li><%= link_to "View Appointment",  view_path(current_user) %></li>
       <li><%= link_to "Online Prescription", patviewall_path %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li><%= image_tag(current_user.avatar, style:'width:50px;height:50px;border-radius:50%;') if current_user.avatar.attached?%></li>
       <li><%= link_to "Logout", sessions_destroy_path %></li>
     </ul>
   </div>

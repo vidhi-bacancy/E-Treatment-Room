@@ -60,6 +60,10 @@
 	<p>
 	<%= form.password_field :password_confirmation , placeholder:'Confirm Password',class:"form-control" %>
 	</p> 
+	<p>
+	<%= form.label :avatar , 'Choose avatar' %>
+	<%= form.file_field :avatar %>
+	</p>
 	<p align="center">
 	<%= form.submit 'Register' ,class:"btn btn-primary btn-md"%>
 	</p>

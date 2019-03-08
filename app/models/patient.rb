@@ -1,6 +1,7 @@
 class Patient < ApplicationRecord
 	has_many :appointments,  dependent: :destroy
 	has_many :doctors, :through => :appointments
+	has_one_attached :avatar
 	
 	validates :name, :email, :address , :phoneno , :gender, :dob, :age , :password, presence: true
 	validates :email, uniqueness: true
